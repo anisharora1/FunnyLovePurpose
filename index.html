@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reel</title>
+    <style>
+       
+        body{
+            background-color: pink;
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            
+        }
+        .content{
+            margin: auto;
+            width: 500px;
+            padding: 100px;
+            text-align: center;
+            padding-bottom: 0px;
+        }
+       
+        .text{
+            margin:auto;
+            height: 45px;
+            width: 400px;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: x-large;
+            letter-spacing: 2px;
+        }
+        .para{
+           margin-top: 3rem;
+        }
+        
+        p{
+            color: rgb(49, 44, 44);
+            letter-spacing: 0.6px;
+            text-align: center;
+            font-family: sans-serif;
+            letter-spacing: 0.1rem;
+            
+        }
+        
+        button{
+            position: relative;
+            display: inline-block;
+            left: 47%;
+            transform: translateX(-50%);
+            margin: auto;
+            padding: 12px 28px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-style: outset;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+       <img src="gif1.gif" alt="">
+        <div class="text"><h3>Do You Love me?</h3></div>
+    </div>
+     <div class="para"><p>~Don't Judge me😎</p></div>
+        <button id="button">YES</button>
+        <button id="button1">NO</button>
+   
+    
+    <script>
+        const button1=document.querySelector("#button1");
+        const button=document.querySelector("#button");
+        const text=document.querySelector(".text");
+        const p=document.querySelector("p");
+        
+        button.addEventListener("click", function(){
+            text.style.fontSize="x-large";
+            document.querySelector("img").src="gif4.gif";
+            text.innerHTML="Hehehehe, I knew it! Love you a lot🥰";
+            p.innerHTML="";
+            
+           
+        });
+        
+            const arr=["Please Think again!🙃","Ek bar aur Soch lo!🥺","Baby Man jao na! Kitna bhav khaogi!😭"];
+            const arr1=["itni jaldi nahi mat bolo🥲","Q aise kar rahi ho😣","bahut galat baat hain yaar😭"];
+            const arr2=["gif2.gif","gif3.gif","gif5.gif"];
+            let i=0;
+        function iter(){
+            //console.log("Current index:", i);
+                if((i<arr.length)){
+                    document.querySelector(".text").innerHTML=arr[i];
+                    document.querySelector("p").innerHTML=arr1[i];
+                    const gifPath = arr2[i];
+                    document.querySelector("img").src=gifPath;
+                    i++;
+                    //console.log("Index incremented to:", i);
+                }else{
+                    var buttonWidth = button1.offsetWidth; // Get button width
+                    var buttonHeight = button1.offsetHeight; // Get button height
+
+                    var windowWidth = window.innerWidth; // Get the screen width
+                    var windowHeight = window.innerHeight; // Get the screen height
+
+                    // Generate random positions, ensuring the button stays within the screen
+                    var k = Math.floor(Math.random() * (windowWidth - buttonWidth));
+                    var m = Math.floor(Math.random() * (windowHeight - buttonHeight));
+
+                    // Set the button's position
+                    button1.style.position = "absolute"; // Ensure the button is positioned absolutely
+                    button1.style.left = k + "px";
+                    button1.style.top = m + "px";
+                } 
+        } 
+        button1.addEventListener("click",iter);
+    </script>
+</body>
+</html>
